@@ -85,7 +85,7 @@ const Navbar = ({ navbar, footer }) => {
 
                                        ${isActive
                                             ? 'bg-[#be8c2f] text-white shadow-md'
-                                            : 'text-[#444] hover:bg-gray-200 hover:text-white'
+                                            : 'text-[#444] hover:bg-[#c9a86c] hover:text-white'
                                         }
                                       `}
                                 >
