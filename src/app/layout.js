@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import '@mantine/core/styles.css';
 import "./globals.css";
 import { MantineProvider } from '@mantine/core';
-import Navbar from "./components/Navbar";
 import ClientLayout from "./ClientLayout";
 
 const workSans = localFont({
