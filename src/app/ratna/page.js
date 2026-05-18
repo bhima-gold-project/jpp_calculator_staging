@@ -360,13 +360,6 @@ const Ratna = () => {
                                 </p>
                                 <p className="text-gray-700  font-work">{" "}in this example.</p>
 
-                                <p className="mt-2 text-gray-600 font-work">
-                                    Effective benefit:
-                                    <span className="ml-2 font-quiche font-bold text-green-600">
-                                        {formatter.format(benefit)}
-                                    </span>
-                                </p>
-
                             </div>
 
                         </div>
