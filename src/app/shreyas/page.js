@@ -593,83 +593,109 @@ const Shreyas = () => {
 
                 {/* Detailed Table */}
                 {metal !== "diamond" && isVisible && (
+                    <>
 
-                    <div className="mt-10 bg-[#fffdf8] rounded-4xl shadow-lg border border-[#e7dcc2] p-6 overflow-auto">
+                        <div className="mt-10 bg-[#fffdf8] rounded-4xl shadow-lg border border-[#e7dcc2] p-6 overflow-auto">
+                            <table className="w-full border-collapse flex-shrink-0 whitespace-nowrap">
 
-                        <table className="w-full border-collapse">
+                                <thead>
 
-                            <thead>
+                                    <tr className="bg-[#f6ecd4]">
 
-                                <tr className="bg-[#f6ecd4]">
+                                        <th className="p-4 text-left">
+                                            Month
+                                        </th>
 
-                                    <th className="p-4 text-left">
-                                        Month
-                                    </th>
+                                        <th className="p-4 text-left">
+                                            Installment
+                                        </th>
 
-                                    <th className="p-4 text-left">
-                                        Installment
-                                    </th>
+                                        <th className="p-4 text-left">
+                                            Metal Rate
+                                        </th>
 
-                                    <th className="p-4 text-left">
-                                        Metal Rate
-                                    </th>
+                                        <th className="p-4 text-left">
+                                            Weight Credit
+                                        </th>
 
-                                    <th className="p-4 text-left">
-                                        Weight Credit
-                                    </th>
+                                    </tr>
 
-                                </tr>
+                                </thead>
 
-                            </thead>
+                                <tbody>
 
-                            <tbody>
+                                    {rateState.map((item, index) => (
 
-                                {rateState.map((item, index) => (
+                                        <tr
+                                            key={index}
+                                            className="border-b border-[#ece3cf]"
+                                        >
 
-                                    <tr
-                                        key={index}
-                                        className="border-b border-[#ece3cf]"
-                                    >
+                                            <td className="p-4">
+                                                {index + 1}
+                                            </td>
+
+                                            <td className="p-4">
+
+                                                {formatter.format(
+                                                    form.values.installmentAmt
+                                                )}
+
+                                            </td>
+
+                                            <td className="p-4">
+
+                                                <TextInput
+                                                    value={rateFormatter.format(
+                                                        item.rate
+                                                    )}
+                                                    onChange={(e) =>
+                                                        changeRate(
+                                                            index,
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                />
+
+                                            </td>
+
+                                            <td className="p-4">
+                                                {item.weight.toFixed(3)} g
+                                            </td>
+
+                                        </tr>
+
+                                    ))}
+                                    <tr className="bg-[#fdf3d7] font-semibold">
 
                                         <td className="p-4">
-                                            {index + 1}
+                                            Total
                                         </td>
 
                                         <td className="p-4">
 
                                             {formatter.format(
-                                                form.values.installmentAmt
+                                                totalAmountPayable
                                             )}
 
                                         </td>
 
                                         <td className="p-4">
-
-                                            <TextInput
-                                                value={rateFormatter.format(
-                                                    item.rate
-                                                )}
-                                                onChange={(e) =>
-                                                    changeRate(
-                                                        index,
-                                                        e.target.value
-                                                    )
-                                                }
-                                            />
-
+                                            -
                                         </td>
 
-                                        <td className="p-4">
-                                            {item.weight.toFixed(3)} g
+                                        <td className="p-4 text-[#0c9b4b]">
+
+                                            {totalWeight.toFixed(3)} g
+
                                         </td>
 
                                     </tr>
 
-                                ))}
+                                </tbody>
 
-                            </tbody>
-
-                        </table>
+                            </table>
+                        </div>
 
                         {/* Redemption */}
                         <div className="mt-8 bg-[#fdf7ea] border border-[#ecd8a8] rounded-3xl p-6">
@@ -725,9 +751,22 @@ const Shreyas = () => {
                             </div>
 
                         </div>
+                        <div className="mt-3 flex flex-wrap gap-3 text-sm font-work text-[#555]">
 
-                    </div>
+                            <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
+                                <b>Metal Rate*</b> : Metal Rate on the day of payment
+                            </span>
 
+                            <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
+                                <b>Inst.</b> : Installment
+                            </span>
+
+                            <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
+                                <b>Wt.</b> : Weight
+                            </span>
+
+                        </div>
+                    </>
                 )}
                 <div className="flex flex-col mt-5">
 

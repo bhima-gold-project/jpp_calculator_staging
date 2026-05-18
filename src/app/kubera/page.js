@@ -22,6 +22,11 @@ const formatter1 = new Intl.NumberFormat("en-IN", {
     maximumFractionDigits: 0,
 });
 
+const rateFormatter = new Intl.NumberFormat("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+});
+
 const Kubera = () => {
 
     const router = useRouter()
@@ -33,6 +38,7 @@ const Kubera = () => {
 
     const [isVisible, setIsVisible] = useState(false);
     const [goldRate, setGoldRate] = useState(0);
+    const [redeemRate, setRedeemRate] = useState(0);
 
     const form = useForm({
         initialValues: {
@@ -93,7 +99,7 @@ const Kubera = () => {
 
             currentRate = getNextRate(currentRate);
         }
-
+        setRedeemRate(currentRate);
         setMonths(generatedMonths);
 
     }, [goldRate, form.values.installmentAmt]);
@@ -108,6 +114,13 @@ const Kubera = () => {
 
     const redemptionWeight =
         totalWeight + benefitWeight;
+
+    const totalInstallmentAmount =
+        form.values.installmentAmt *
+        form.values.numInstallment;
+
+    const benefitWorth =
+        benefitWeight * redeemRate;
 
     const chartData = {
         labels: [
@@ -370,12 +383,12 @@ const Kubera = () => {
 
                                     (Effectively you get benefit worth{""}
                                     <span className="ml-2 font-quiche font-bold text-green-600">
-                                    {benefitWeight.toFixed(3)}g
+                                        {benefitWeight.toFixed(3)}g
                                     </span>{" "}
-                                      <span className="font-semibold">
+                                    <span className="font-semibold">
                                         of 22Kt Gold
                                     </span>{" "}
-                                    
+
                                     in this example)
                                 </p>
                             </div>
@@ -411,64 +424,160 @@ const Kubera = () => {
 
                 {/* Detailed Table */}
                 {isVisible && (
+                    <>
+                        <div className="mt-10 bg-[#fffdf8] rounded-[32px] shadow-lg border border-[#e7dcc2] p-6 overflow-auto">
 
-                    <div className="mt-10 bg-[#fffdf8] rounded-[32px] shadow-lg border border-[#e7dcc2] p-6 overflow-auto">
+                            <table className="w-full border-collapse flex-shrink-0 whitespace-nowrap">
 
-                        <table className="w-full border-collapse">
+                                <thead>
 
-                            <thead>
+                                    <tr className="bg-[#f6ecd4]">
 
-                                <tr className="bg-[#f6ecd4]">
+                                        <th className="p-4 text-left">Month</th>
+                                        <th className="p-4 text-left">Installment</th>
+                                        <th className="p-4 text-left">Gold Rate</th>
+                                        <th className="p-4 text-left">Gold Weight</th>
 
-                                    <th className="p-4 text-left">Month</th>
-                                    <th className="p-4 text-left">Installment</th>
-                                    <th className="p-4 text-left">Gold Rate</th>
-                                    <th className="p-4 text-left">Gold Weight</th>
+                                    </tr>
 
-                                </tr>
+                                </thead>
 
-                            </thead>
+                                <tbody>
 
-                            <tbody>
+                                    {months.map((item) => (
 
-                                {months.map((item) => (
+                                        <tr
+                                            key={item.month}
+                                            className="border-b border-[#ece3cf]"
+                                        >
 
-                                    <tr
-                                        key={item.month}
-                                        className="border-b border-[#ece3cf]"
-                                    >
+                                            <td className="p-4">
+                                                {item.month}
+                                            </td>
+
+                                            <td className="p-4">
+                                                {formatter.format(
+                                                    form.values.installmentAmt
+                                                )}
+                                            </td>
+
+                                            <td className="p-4">
+                                                <TextInput
+                                                    value={formatter.format(item.rate)}
+                                                    readOnly
+                                                />
+                                            </td>
+
+                                            <td className="p-4">
+                                                {item.weight.toFixed(3)} g
+                                            </td>
+
+                                        </tr>
+
+                                    ))}
+
+                                    <tr className="bg-[#fdf3d7] font-semibold">
 
                                         <td className="p-4">
-                                            {item.month}
+                                            Total
                                         </td>
 
                                         <td className="p-4">
+
                                             {formatter.format(
-                                                form.values.installmentAmt
+                                                totalInstallmentAmount
                                             )}
+
                                         </td>
 
                                         <td className="p-4">
-                                            <TextInput
-                                                value={formatter.format(item.rate)}
-                                                readOnly
-                                            />
+                                            -
                                         </td>
 
-                                        <td className="p-4">
-                                            {item.weight.toFixed(3)} g
+                                        <td className="p-4 text-[#0c9b4b]">
+
+                                            {totalWeight.toFixed(3)} g
+
                                         </td>
 
                                     </tr>
 
-                                ))}
+                                </tbody>
 
-                            </tbody>
+                            </table>
 
-                        </table>
+                        </div>
 
-                    </div>
+                        {/* Redemption */}
+                        <div className="mt-8 bg-[#fdf7ea] border border-[#ecd8a8] rounded-3xl p-6">
 
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+
+                                <div className="font-work text-[#444]">
+
+                                    Assumed gold rate on the day of Redemption
+
+                                </div>
+
+                                <div>
+
+
+                                    <TextInput
+                                        value={
+                                            redeemRate
+                                                ? rateFormatter.format(
+                                                    redeemRate
+                                                )
+                                                : ""
+                                        }
+                                        onChange={(e) => {
+
+                                            const cleanValue =
+                                                e.target.value.replace(
+                                                    /,/g,
+                                                    ""
+                                                );
+
+                                            const num =
+                                                Number(cleanValue);
+
+                                            if (!isNaN(num)) {
+                                                setRedeemRate(num);
+                                            }
+
+                                        }}
+                                    />
+
+                                </div>
+
+                                <div className="font-semibold text-[#be8c2f] text-lg">
+
+                                    Benefit Worth:
+                                    {" "}
+                                    {formatter.format(benefitWorth)}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div className="mt-3 flex flex-wrap gap-3 text-sm font-work text-[#555]">
+
+                            <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
+                                <b>Gold Rate*</b> : Gold Rate on the day of payment
+                            </span>
+
+                            <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
+                                <b>Inst.</b> : Installment
+                            </span>
+
+                            <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
+                                <b>Wt.</b> : Weight
+                            </span>
+
+                        </div>
+                    </>
                 )}
 
                 <div className="flex flex-col mt-5">
