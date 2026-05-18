@@ -1,9 +1,9 @@
 'use client'
-
+import { Suspense } from "react";
 import { useSearchParams } from 'next/navigation'
 import Navbar from './components/Navbar'
 
-const ClientLayout = ({ children }) => {
+const ClientLayoutContent = ({ children }) => {
     const searchParams = useSearchParams()
     // sanitize values
     const navbar = searchParams.get('navbar') === '0' ? '0' : '1'
@@ -52,4 +52,12 @@ const ClientLayout = ({ children }) => {
     )
 }
 
-export default ClientLayout
+
+export default function ClientLayout({ children }) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ClientLayoutContent>{children}</ClientLayoutContent>
+    </Suspense>
+  );
+}
+
