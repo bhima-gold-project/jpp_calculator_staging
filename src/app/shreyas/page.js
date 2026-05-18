@@ -37,7 +37,7 @@ const Shreyas = () => {
     const footer = searchParams.get('footer')
 
     const [isVisible, setIsVisible] = useState(false);
-    const [metal, setMetal] = useState("gold");
+    const [metal, setMetal] = useState("Gold");
 
     const [rates, setRates] = useState({
         gold: 0,
@@ -250,7 +250,7 @@ const Shreyas = () => {
 
                     <div className="flex flex-wrap gap-2">
 
-                        {["gold", "silver", "diamond"].map((item) => (
+                        {["Gold", "Silver", "diamond"].map((item) => (
 
                             <button
                                 key={item}
