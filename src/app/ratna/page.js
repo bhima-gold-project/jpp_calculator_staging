@@ -147,7 +147,7 @@ const Ratna = () => {
         <div className="bg-linear-to-b from-[#fff8e1] to-[#ffffff] px-4 py-6 md:px-8 lg:px-14">
 
 
-            <div className=" bg-white rounded-[10px] shadow-xl border border-[#ececec] p-6">
+            <div className=" bg-white rounded-[10px] shadow-xl border border-[#ececec] p-4">
 
                 {/* Main Grid */}
                 <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
