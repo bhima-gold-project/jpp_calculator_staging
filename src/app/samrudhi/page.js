@@ -130,351 +130,353 @@ const Samrudhi = () => {
     },
   };
 
-  return(
+  return (
     <div className="w-full h-full bg-[#f8f5ee] p-2 md:p-3">
 
-    <div className="max-w-[1280px] mx-auto bg-white rounded-[30px] border border-[#eadfc8] shadow-2xl overflow-hidden">
+      <div className="max-w-[1280px] mx-auto bg-white rounded-[30px] border border-[#eadfc8] shadow-2xl overflow-hidden">
 
         {/* Header */}
         <div className="px-4 md:px-6 py-4 border-b border-[#f2e6cf] bg-gradient-to-r from-[#fffaf1] to-white flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
-            <div>
+          <div>
 
-                <p className="font-work text-[11px] uppercase tracking-[3px] text-[#9c8661]">
-                    Jewellery Purchase Plan
-                </p>
+            <p className="font-work text-[11px] uppercase tracking-[3px] text-[#9c8661]">
+              Jewellery Purchase Plan
+            </p>
 
-                <h1 className="font-quiche text-[34px] md:text-[44px] text-[#b7892b] leading-none">
-                    Samrudhi
-                </h1>
+            <h1 className="font-quiche text-[34px] md:text-[44px] text-[#b7892b] leading-none">
+              Samrudhi
+            </h1>
 
-            </div>
+          </div>
 
-            <div className="bg-[#fff7e8] border border-[#f1dfb2] rounded-full px-5 py-2">
+          <div className="bg-[#fff7e8] border border-[#f1dfb2] rounded-full px-5 py-2">
 
-                <p className="font-work text-[11px] uppercase tracking-[2px] text-[#8c7b62]">
-                    Premium Savings
-                </p>
+            <p className="font-work text-[11px] uppercase tracking-[2px] text-[#8c7b62]">
+              Premium Savings
+            </p>
 
-                <h3 className="font-quiche text-[22px] text-[#0c9b4b] leading-none mt-1">
-                    No Making Charges
-                </h3>
+            <h3 className="font-quiche text-[22px] text-[#0c9b4b] leading-none mt-1">
+              No Making Charges
+            </h3>
 
-            </div>
+          </div>
 
         </div>
 
         {/* Main Layout */}
         <div className="grid grid-cols-1 xl:grid-cols-[320px_1fr_280px] gap-3 p-3">
 
-            {/* Calculator Panel */}
-            <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[26px] p-4">
+          {/* Calculator Panel */}
+          <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[26px] p-4">
 
-                <div className="space-y-6">
+            <div className="space-y-6">
 
-                    {/* Installment */}
-                    <div>
+              {/* Installment */}
+              <div>
 
-                        <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-2">
 
-                            <label className="font-work text-[13px] text-[#666]">
-                                Installment
-                            </label>
+                  <label className="font-work text-[13px] text-[#666]">
+                    Installment
+                  </label>
 
-                            <span className="font-quiche text-[18px] text-[#b7892b]">
-                                {formatter1.format(
-                                    form.values.installmentAmt
-                                )}
-                            </span>
-
-                        </div>
-
-                        <Slider
-                            value={form.values.installmentAmt}
-                            onChange={(value) =>
-                                form.setFieldValue(
-                                    "installmentAmt",
-                                    value
-                                )
-                            }
-                            min={5000}
-                            max={100000}
-                            step={1000}
-                            styles={{
-                                track: {
-                                    backgroundColor: "#ececec",
-                                    height: 5,
-                                },
-                                thumb: {
-                                    backgroundColor: "#ffffff",
-                                    border: "3px solid #b7892b",
-                                    width: 18,
-                                    height: 18,
-                                },
-                                bar: {
-                                    backgroundColor: "#b7892b",
-                                },
-                            }}
-                        />
-
-                    </div>
-
-                    {/* Installments */}
-                    <div>
-
-                        <div className="flex items-center justify-between mb-2">
-
-                            <label className="font-work text-[13px] text-[#666]">
-                                Months
-                            </label>
-
-                            <span className="font-quiche text-[18px] text-[#b7892b]">
-                                {form.values.numInstallment}
-                            </span>
-
-                        </div>
-
-                        <Slider
-                            value={form.values.numInstallment}
-                            onChange={(value) =>
-                                form.setFieldValue(
-                                    "numInstallment",
-                                    value
-                                )
-                            }
-                            min={1}
-                            max={11}
-                            step={1}
-                            styles={{
-                                track: {
-                                    backgroundColor: "#ececec",
-                                    height: 5,
-                                },
-                                thumb: {
-                                    backgroundColor: "#ffffff",
-                                    border: "3px solid #b7892b",
-                                    width: 18,
-                                    height: 18,
-                                },
-                                bar: {
-                                    backgroundColor: "#b7892b",
-                                },
-                            }}
-                        />
-
-                    </div>
-
-                    {/* Making Charges */}
-                    <div>
-
-                        <div className="flex items-center justify-between mb-2">
-
-                            <label className="font-work text-[13px] text-[#666]">
-                                Making Charges
-                            </label>
-
-                            <span className="font-quiche text-[18px] text-[#b7892b]">
-                                {form.values.makingCharges}%
-                            </span>
-
-                        </div>
-
-                        <Slider
-                            value={form.values.makingCharges}
-                            onChange={(value) =>
-                                form.setFieldValue(
-                                    "makingCharges",
-                                    value
-                                )
-                            }
-                            min={2}
-                            max={40}
-                            step={1}
-                            styles={{
-                                track: {
-                                    backgroundColor: "#ececec",
-                                    height: 5,
-                                },
-                                thumb: {
-                                    backgroundColor: "#ffffff",
-                                    border: "3px solid #b7892b",
-                                    width: 18,
-                                    height: 18,
-                                },
-                                bar: {
-                                    backgroundColor: "#b7892b",
-                                },
-                            }}
-                        />
-
-                    </div>
+                  <span className="font-quiche text-[18px] text-[#b7892b]">
+                    {formatter1.format(
+                      form.values.installmentAmt
+                    )}
+                  </span>
 
                 </div>
 
-                {/* Benefit Box */}
-                <div className="mt-5 rounded-[22px] bg-gradient-to-r from-[#fbf4e5] to-[#fff] border border-[#f2dfb5] p-4">
+                <Slider
+                  value={form.values.installmentAmt}
+                  onChange={(value) =>
+                    form.setFieldValue(
+                      "installmentAmt",
+                      value
+                    )
+                  }
+                  min={5000}
+                  max={100000}
+                  step={1000}
+                  styles={{
+                    track: {
+                      backgroundColor: "#ececec",
+                      height: 5,
+                    },
+                    thumb: {
+                      backgroundColor: "#ffffff",
+                      border: "3px solid #b7892b",
+                      width: 18,
+                      height: 18,
+                    },
+                    bar: {
+                      backgroundColor: "#b7892b",
+                    },
+                  }}
+                />
 
-                    <p className="font-work text-[11px] uppercase tracking-[2px] text-[#8c7b62]">
-                        Estimated Benefit
-                    </p>
+              </div>
 
-                    <h3 className="font-quiche text-[30px] text-[#0c9b4b] leading-none mt-2">
-                        {formatter.format(
-                            getDiscount()
-                        )}
-                    </h3>
+              {/* Installments */}
+              <div>
 
-                    <p className="mt-2 text-[12px] leading-6 text-[#666] font-work">
-                        Exclusive savings on jewellery making charges.
-                    </p>
+                <div className="flex items-center justify-between mb-2">
+
+                  <label className="font-work text-[13px] text-[#666]">
+                    Months
+                  </label>
+
+                  <span className="font-quiche text-[18px] text-[#b7892b]">
+                    {form.values.numInstallment}
+                  </span>
 
                 </div>
+
+                <Slider
+                  value={form.values.numInstallment}
+                  onChange={(value) =>
+                    form.setFieldValue(
+                      "numInstallment",
+                      value
+                    )
+                  }
+                  min={1}
+                  max={11}
+                  step={1}
+                  styles={{
+                    track: {
+                      backgroundColor: "#ececec",
+                      height: 5,
+                    },
+                    thumb: {
+                      backgroundColor: "#ffffff",
+                      border: "3px solid #b7892b",
+                      width: 18,
+                      height: 18,
+                    },
+                    bar: {
+                      backgroundColor: "#b7892b",
+                    },
+                  }}
+                />
+
+              </div>
+
+              {/* Making Charges */}
+              <div>
+
+                <div className="flex items-center justify-between mb-2">
+
+                  <label className="font-work text-[13px] text-[#666]">
+                    Making Charges
+                  </label>
+
+                  <span className="font-quiche text-[18px] text-[#b7892b]">
+                    {form.values.makingCharges}%
+                  </span>
+
+                </div>
+
+                <Slider
+                  value={form.values.makingCharges}
+                  onChange={(value) =>
+                    form.setFieldValue(
+                      "makingCharges",
+                      value
+                    )
+                  }
+                  min={2}
+                  max={40}
+                  step={1}
+                  styles={{
+                    track: {
+                      backgroundColor: "#ececec",
+                      height: 5,
+                    },
+                    thumb: {
+                      backgroundColor: "#ffffff",
+                      border: "3px solid #b7892b",
+                      width: 18,
+                      height: 18,
+                    },
+                    bar: {
+                      backgroundColor: "#b7892b",
+                    },
+                  }}
+                />
+
+              </div>
 
             </div>
 
-            {/* Summary */}
-            <div className="space-y-3">
+            {/* Benefit Box */}
+            <div className="mt-5 rounded-[22px] bg-gradient-to-r from-[#fbf4e5] to-[#fff] border border-[#f2dfb5] p-4">
 
-                {/* Summary Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <p className="font-work text-[11px] uppercase tracking-[2px] text-[#8c7b62]">
+                Estimated Benefit
+              </p>
 
-                    <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[24px] p-4">
+              <h3 className="font-quiche text-[30px] text-[#0c9b4b] leading-none mt-2">
+                {formatter.format(
+                  getDiscount()
+                )}
+              </h3>
 
-                        <p className="font-work text-[12px] text-[#777] mb-2">
-                            Total Paid
-                        </p>
-
-                        <h3 className="font-quiche text-[24px] text-[#1f1f1f] leading-none">
-                            {formatter.format(
-                                getTotal()
-                            )}
-                        </h3>
-
-                    </div>
-
-                    <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[24px] p-4">
-
-                        <p className="font-work text-[12px] text-[#777] mb-2">
-                            Benefit
-                        </p>
-
-                        <h3 className="font-quiche text-[24px] text-[#b7892b] leading-none">
-                            {formatter.format(
-                                getDiscount()
-                            )}
-                        </h3>
-
-                    </div>
-
-                    <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[24px] p-4">
-
-                        <p className="font-work text-[12px] text-[#777] mb-2">
-                            Redemption
-                        </p>
-
-                        <h3 className="font-quiche text-[24px] text-[#0c9b4b] leading-none">
-                            {formatter.format(
-                                getWorth()
-                            )}
-                        </h3>
-
-                    </div>
-
-                </div>
-
-                {/* Benefit Banner */}
-                <div className="bg-gradient-to-r from-[#b7892b] to-[#8C5C34] rounded-[28px] p-5 text-white">
-
-                    <p className="text-[11px] uppercase tracking-[3px] font-work text-white/80">
-                        Exclusive Benefit
-                    </p>
-
-                    <h3 className="font-quiche text-[30px] leading-none mt-2">
-                        No Making Charges
-                    </h3>
-
-                    <p className="mt-3 text-sm leading-7 text-white/90 font-work">
-
-                        Save up to{" "}
-                        <span className="font-semibold">
-                            {formatter.format(
-                                getDiscount()
-                            )}
-                        </span>{" "}
-                        on jewellery making charges.
-
-                    </p>
-
-                </div>
+              <p className="mt-2 text-[12px] leading-6 text-[#666] font-work">
+                Exclusive savings on jewellery making charges.
+              </p>
 
             </div>
 
-            {/* Pie Chart */}
-            <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[26px] p-4 flex flex-col items-center justify-center">
+          </div>
 
-                <div className="w-[190px] h-[190px]">
+          {/* Summary */}
+          <div className="space-y-3">
 
-                    <Pie
-                        data={chartData}
-                        options={{
-                            ...chartOptions,
-                            responsive: true,
-                            maintainAspectRatio: false,
-                        }}
-                    />
+            {/* Summary Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
 
-                </div>
+              <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[24px] p-4">
 
-                <p className="mt-3 text-[10px] text-center text-[#8C5C34] font-work leading-4">
-                    Benefits shown are indicative only.
+                <p className="font-work text-[12px] text-[#777] mb-2">
+                  Total Paid
                 </p>
 
+                <h3 className="font-quiche text-[24px] text-[#1f1f1f] leading-none">
+                  {formatter.format(
+                    getTotal()
+                  )}
+                </h3>
+
+              </div>
+
+              <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[24px] p-4">
+
+                <p className="font-work text-[12px] text-[#777] mb-2">
+                  Benefit
+                </p>
+
+                <h3 className="font-quiche text-[24px] text-[#b7892b] leading-none">
+                  {formatter.format(
+                    getDiscount()
+                  )}
+                </h3>
+
+              </div>
+
+              <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[24px] p-4">
+
+                <p className="font-work text-[12px] text-[#777] mb-2">
+                  Redemption
+                </p>
+
+                <h3 className="font-quiche text-[24px] text-[#0c9b4b] leading-none">
+                  {formatter.format(
+                    getWorth()
+                  )}
+                </h3>
+
+              </div>
+
             </div>
+
+            {/* Benefit Banner */}
+            <div className="bg-gradient-to-r from-[#b7892b] to-[#8C5C34] rounded-[28px] p-5 text-white">
+
+              <p className="text-[11px] uppercase tracking-[3px] font-work text-white/80">
+                Exclusive Benefit
+              </p>
+
+              <h3 className="font-quiche text-[30px] leading-none mt-2">
+                No Making Charges
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-white/90 font-work">
+
+                Save up to{" "}
+                <span className="font-semibold">
+                  {formatter.format(
+                    getDiscount()
+                  )}
+                </span>{" "}
+                on jewellery making charges.
+
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* Pie Chart */}
+          <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[26px] p-4 flex flex-col items-center justify-center">
+            <p className="font-work text-[12px] text-[#777] mb-2">
+              Benefit Breakdown
+            </p>
+            <div className="w-[190px] h-[190px]">
+
+              <Pie
+                data={chartData}
+                options={{
+                  ...chartOptions,
+                  responsive: true,
+                  maintainAspectRatio: false,
+                }}
+              />
+
+            </div>
+
+            <p className="mt-3 text-[10px] text-center text-[#8C5C34] font-work leading-4">
+              Benefits shown are indicative only.
+            </p>
+
+          </div>
 
         </div>
 
         {/* Bottom Navigation */}
         <div className="border-t border-[#f1e6cf] px-4 py-3 bg-[#fffaf1] flex items-center justify-between">
 
-            <button
-                onClick={() =>
-                    router.push(
-                        `/kubera?navbar=${navbar}&footer=${footer}`
-                    )
-                }
-                className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
-            >
-                ←
-            </button>
+          <button
+            onClick={() =>
+              router.push(
+                `/kubera?navbar=${navbar}&footer=${footer}`
+              )
+            }
+            className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
+          >
+            ←
+          </button>
 
-            <div className="text-center">
+          <div className="text-center">
 
-                <p className="font-work text-[11px] uppercase tracking-[3px] text-[#8c7b62]">
-                    Sample Calculator
-                </p>
+            <p className="font-work text-[11px] uppercase tracking-[3px] text-[#8c7b62]">
+              Sample Calculator
+            </p>
 
-                <h3 className="font-quiche text-[24px] text-[#b7892b] leading-none">
-                    Samrudhi
-                </h3>
+            <h3 className="font-quiche text-[24px] text-[#b7892b] leading-none">
+              Samrudhi
+            </h3>
 
-            </div>
+          </div>
 
-            <button
-                onClick={() =>
-                    router.push(
-                        `/ratna?navbar=${navbar}&footer=${footer}`
-                    )
-                }
-                className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
-            >
-                →
-            </button>
+          <button
+            onClick={() =>
+              router.push(
+                `/ratna?navbar=${navbar}&footer=${footer}`
+              )
+            }
+            className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
+          >
+            →
+          </button>
 
         </div>
 
-    </div>
+      </div>
 
-</div>
+    </div>
   )
 
   // return (

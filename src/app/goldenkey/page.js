@@ -397,7 +397,9 @@ const GoldenKey = () => {
 
           {/* Pie Chart */}
           <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[26px] p-4 flex flex-col items-center justify-center">
-
+            <p className="font-work text-[12px] text-[#777] mb-2">
+              Benefit Breakdown
+            </p>
             <div className="w-[190px] h-[190px]">
 
               <Pie

@@ -37,7 +37,7 @@ const Shreyas = () => {
     const footer = searchParams.get('footer')
 
     const [isVisible, setIsVisible] = useState(false);
-    const [metal, setMetal] = useState("Gold");
+    const [metal, setMetal] = useState("gold");
 
     const [rates, setRates] = useState({
         gold: 0,
@@ -250,7 +250,7 @@ const Shreyas = () => {
 
                     <div className="flex flex-wrap gap-2">
 
-                        {["Gold", "Silver", "diamond"].map((item) => (
+                        {["gold", "silver", "diamond"].map((item) => (
 
                             <button
                                 key={item}
@@ -267,7 +267,7 @@ const Shreyas = () => {
 
                                 {item === "diamond"
                                     ? "Diamond & Platinum"
-                                    : item}
+                                    : item === "gold" ? 'Gold' : item == "silver" ? 'Silver' : null}
 
                             </button>
 
@@ -591,7 +591,9 @@ const Shreyas = () => {
 
                     {/* Pie Chart */}
                     <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[26px] p-4 flex flex-col items-center justify-center">
-
+                        <p className="font-work text-[12px] text-[#777] mb-2">
+                            Benefit Breakdown
+                        </p>
                         <div className="w-[190px] h-[190px]">
 
                             <Pie
@@ -766,82 +768,76 @@ const Shreyas = () => {
                                     }}
                                 />
 
-                                <div className="font-quiche text-[26px] text-[#0c9b4b]">
+                                <div className="font-quiche text-[#0c9b4b] text-lg"> <span className="text-[#8C5C34] font-work">Benefit Worth:</span>{" "}{formatter.format(benefitInRs)}</div>
 
-                                    {formatter.format(
-                                        benefitInRs
-                                    )}
+                            </div>
 
-                                </div>
+                            </div>
+
+                            {/* Tags */}
+                            <div className="mt-4 flex flex-wrap gap-3 text-sm font-work text-[#555]">
+
+                                <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
+                                    <b>Metal Rate*</b> : Payment Day Rate
+                                </span>
+
+                                <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
+                                    <b>Inst.</b> : Installment
+                                </span>
+
+                                <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
+                                    <b>Wt.</b> : Weight
+                                </span>
 
                             </div>
 
                         </div>
 
-                        {/* Tags */}
-                        <div className="mt-4 flex flex-wrap gap-3 text-sm font-work text-[#555]">
+                )}
 
-                            <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
-                                <b>Metal Rate*</b> : Payment Day Rate
-                            </span>
+                        {/* Footer Navigation */}
+                        <div className="border-t border-[#f1e6cf] px-4 py-3 bg-[#fffaf1] flex items-center justify-between">
 
-                            <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
-                                <b>Inst.</b> : Installment
-                            </span>
+                            <button
+                                onClick={() =>
+                                    router.push(
+                                        `/goldenkey?navbar=${navbar}&footer=${footer}`
+                                    )
+                                }
+                                className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
+                            >
+                                ←
+                            </button>
 
-                            <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
-                                <b>Wt.</b> : Weight
-                            </span>
+                            <div className="text-center">
+
+                                <p className="font-work text-[11px] uppercase tracking-[3px] text-[#8c7b62]">
+                                    Sample Calculator
+                                </p>
+
+                                <h3 className="font-quiche text-[24px] text-[#b7892b] leading-none">
+                                    Shreyas
+                                </h3>
+
+                            </div>
+
+                            <button
+                                onClick={() =>
+                                    router.push(
+                                        `/kubera?navbar=${navbar}&footer=${footer}`
+                                    )
+                                }
+                                className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
+                            >
+                                →
+                            </button>
 
                         </div>
 
                     </div>
 
-                )}
-
-                {/* Footer Navigation */}
-                <div className="border-t border-[#f1e6cf] px-4 py-3 bg-[#fffaf1] flex items-center justify-between">
-
-                    <button
-                        onClick={() =>
-                            router.push(
-                                `/goldenkey?navbar=${navbar}&footer=${footer}`
-                            )
-                        }
-                        className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
-                    >
-                        ←
-                    </button>
-
-                    <div className="text-center">
-
-                        <p className="font-work text-[11px] uppercase tracking-[3px] text-[#8c7b62]">
-                            Sample Calculator
-                        </p>
-
-                        <h3 className="font-quiche text-[24px] text-[#b7892b] leading-none">
-                            Shreyas
-                        </h3>
-
-                    </div>
-
-                    <button
-                        onClick={() =>
-                            router.push(
-                                `/kubera?navbar=${navbar}&footer=${footer}`
-                            )
-                        }
-                        className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
-                    >
-                        →
-                    </button>
-
-                </div>
-
-            </div>
-
         </div>
-    )
+            )
 
     // return (
 
@@ -1445,4 +1441,4 @@ const Shreyas = () => {
     // );
 };
 
-export default Shreyas;
+                                        export default Shreyas;

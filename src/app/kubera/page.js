@@ -440,7 +440,9 @@ const Kubera = () => {
 
                     {/* Pie Chart */}
                     <div className="bg-[#fffdf8] border border-[#f1e6cf] rounded-[26px] p-4 flex flex-col items-center justify-center">
-
+                        <p className="font-work text-[12px] text-[#777] mb-2">
+                            Benefit Breakdown
+                        </p>
                         <div className="w-[190px] h-[190px]">
 
                             <Pie
@@ -605,14 +607,8 @@ const Kubera = () => {
 
                                     }}
                                 />
+                                <div className="font-quiche text-[#0c9b4b] text-lg"> <span className="text-[#8C5C34] font-work">Benefit Worth:</span>{" "}{formatter.format(benefitWorth)}</div>
 
-                                <div className="font-quiche text-[26px] text-[#0c9b4b]">
-
-                                    {formatter.format(
-                                        benefitWorth
-                                    )}
-
-                                </div>
 
                             </div>
 
