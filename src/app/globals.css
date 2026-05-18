@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --background: linear-gradient(to bottom, #fff8e1, #ffffff);
+  --foreground: #b8860b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-work: var(--font-work-sans);
+  --font-quiche: var(--font-quiche-sans);
+  --font-arial: var(--font-arial);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: linear-gradient(to bottom, #fff8e1, #ffffff);
+    --foreground: #b8860b;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-work-sans), sans-serif;
+}
+
+/* Optional utility classes */
+.font-work {
+  font-family: var(--font-work-sans), sans-serif;
+}
+
+.font-quiche {
+  font-family: var(--font-quiche-sans), serif;
+}
+
+.font-arial {
+  font-family: var(--font-arial), sans-serif;
+}
