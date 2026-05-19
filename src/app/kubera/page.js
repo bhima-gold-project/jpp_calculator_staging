@@ -267,6 +267,7 @@ const Kubera = () => {
                                     min={1}
                                     max={11}
                                     step={1}
+                                    disabled
                                     styles={{
                                         track: {
                                             backgroundColor: "#ececec",

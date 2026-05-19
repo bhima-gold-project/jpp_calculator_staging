@@ -358,6 +358,7 @@ const Shreyas = () => {
                                     min={1}
                                     max={11}
                                     step={1}
+                                    disabled
                                     styles={{
                                         track: {
                                             backgroundColor: "#ececec",
@@ -1441,4 +1442,4 @@ const Shreyas = () => {
     // );
 };
 
-                                        export default Shreyas;
+export default Shreyas;
