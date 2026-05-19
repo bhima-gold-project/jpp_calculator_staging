@@ -58,7 +58,7 @@ const Navbar = ({ navbar, footer }) => {
                         <div className="flex flex-col">
 
                             <h1 className="font-quiche text-[30px] leading-none text-[#be8c2f]">
-                                JPP
+                                BMC
                             </h1>
 
                             <span className="font-work text-[11px] tracking-[3px] uppercase text-[#666]">
