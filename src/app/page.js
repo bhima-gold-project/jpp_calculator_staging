@@ -20,7 +20,7 @@ export default function Home() {
             priority
           />
           <p className="font-quiche text-[48px] md:text-[60px] leading-none text-[#be8c2f]">
-            JPP Calculator
+            JPP Scheme Calculator
           </p>
 
           <p className="font-work mt-5 text-[#5c5c5c] text-[17px] md:text-[24px] leading-8 md:leading-10 max-w-4xl">
