@@ -776,7 +776,7 @@ const Shreyas = () => {
                             </div>
 
                             {/* Tags */}
-                            <div className="mt-4 flex flex-wrap gap-3 text-sm font-work text-[#555]">
+                            {/* <div className="mt-4 flex flex-wrap gap-3 text-sm font-work text-[#555]">
 
                                 <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
                                     <b>Metal Rate*</b> : Payment Day Rate
@@ -790,7 +790,7 @@ const Shreyas = () => {
                                     <b>Wt.</b> : Weight
                                 </span>
 
-                            </div>
+                            </div> */}
 
                         </div>
 

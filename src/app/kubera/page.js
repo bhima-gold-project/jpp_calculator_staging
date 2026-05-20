@@ -616,7 +616,7 @@ const Kubera = () => {
                         </div>
 
                         {/* Tags */}
-                        <div className="mt-4 flex flex-wrap gap-3 text-sm font-work text-[#555]">
+                        {/* <div className="mt-4 flex flex-wrap gap-3 text-sm font-work text-[#555]">
 
                             <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
                                 <b>Gold Rate*</b> : Payment Day Rate
@@ -630,7 +630,7 @@ const Kubera = () => {
                                 <b>Wt.</b> : Weight
                             </span>
 
-                        </div>
+                        </div> */}
 
                     </div>
 
