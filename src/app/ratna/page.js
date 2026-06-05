@@ -137,6 +137,13 @@ const Ratna = () => {
         plugins: {
             legend: {
                 position: "bottom",
+                labels: {
+                    boxWidth: 20,
+                    padding: 15,
+                    font: {
+                        size: 12,
+                    },
+                },
             },
         },
     };
@@ -387,7 +394,7 @@ const Ratna = () => {
                                 Benefit
                             </p>
 
-                               <p className="font-work leading-7 mt-2">
+                            <p className="font-work leading-7 mt-2">
                                 Effectively you get benefit worth
                                 {" "}
                                 <span className="font-semibold">

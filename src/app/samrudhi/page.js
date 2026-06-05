@@ -126,6 +126,13 @@ const Samrudhi = () => {
     plugins: {
       legend: {
         position: "bottom",
+        labels: {
+          boxWidth: 20,
+          padding: 15,
+          font: {
+            size: 12,
+          },
+        },
       },
     },
   };
@@ -401,9 +408,9 @@ const Samrudhi = () => {
                   )}
                 </span>{" "}
                 on product(s) worth
-                    {" "}
+                {" "}
                 <span className="font-semibold">
-                     {formatter.format(
+                  {formatter.format(
                     getTotal()
                   )}
                 </span>{" "}

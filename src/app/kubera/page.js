@@ -148,6 +148,13 @@ const Kubera = () => {
         plugins: {
             legend: {
                 position: "bottom",
+                labels: {
+                    boxWidth: 20,
+                    padding: 15,
+                    font: {
+                        size: 12,
+                    },
+                },
             },
         },
     };
@@ -175,7 +182,7 @@ const Kubera = () => {
                     <div className="bg-[#fff7e8] border border-[#f1dfb2] rounded-full px-5 py-2">
 
                         <p className="font-work text-[11px] uppercase tracking-[2px] text-[#8c7b62]">
-                          Benefit
+                            Benefit
                         </p>
 
                         <h3 className="font-quiche text-[22px] text-[#0c9b4b] leading-none mt-1">
@@ -405,15 +412,15 @@ const Kubera = () => {
                             </p>
 
                             <p className="font-work leading-7 mt-2">
-                              You need to pay only 50% of Making charges on Product (s) weighing 
-                              {' '}<span className="font-semibold">
+                                You need to pay only 50% of Making charges on Product (s) weighing
+                                {' '}<span className="font-semibold">
                                     {totalWeight.toFixed(3)}g
                                 </span>{' '}
-                              (Effectively you get benefit worth
-                              {' '}<span className="font-semibold">
-                                      {benefitWeight.toFixed(3)}g
+                                (Effectively you get benefit worth
+                                {' '}<span className="font-semibold">
+                                    {benefitWeight.toFixed(3)}g
                                 </span>{' '}
-                               of 22Kt Gold in this example)
+                                of 22Kt Gold in this example)
                             </p>
 
                         </div>

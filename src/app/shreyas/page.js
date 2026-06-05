@@ -197,9 +197,16 @@ const Shreyas = () => {
         plugins: {
             legend: {
                 position: "bottom",
+                labels: {
+                    boxWidth: 20,
+                    padding: 15,
+                    font: {
+                        size: 12,
+                    },
+                },
             },
         },
-    };
+    }
 
     const changeRate = (index, value) => {
 
@@ -559,7 +566,7 @@ const Shreyas = () => {
                                         {" "}<span className="font-semibold">
                                             {benefitWeight().toFixed(3)}g
                                         </span>{" "}
-                                        of&nbsp;{metal === "silver" ? 'Silver':'22Kt Gold'} in this example)
+                                        of&nbsp;{metal === "silver" ? 'Silver' : '22Kt Gold'} in this example)
                                     </>
                                 )}
 
