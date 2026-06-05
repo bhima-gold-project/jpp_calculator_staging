@@ -432,7 +432,7 @@ const Shreyas = () => {
                         <div className="mt-5 rounded-[22px] bg-gradient-to-r from-[#fbf4e5] to-[#fff] border border-[#f2dfb5] p-4">
 
                             <p className="font-work text-[11px] uppercase tracking-[2px] text-[#8c7b62]">
-                                Estimated Benefit
+                                Benefit
                             </p>
 
                             <h3 className="font-quiche text-[30px] text-[#0c9b4b] leading-none mt-2">
@@ -530,18 +530,10 @@ const Shreyas = () => {
                         <div className="bg-gradient-to-r from-[#b7892b] to-[#8C5C34] rounded-[28px] p-5 text-white">
 
                             <p className="text-[11px] uppercase tracking-[3px] font-work text-white/80">
-                                Exclusive Benefit
+                                Benefit
                             </p>
 
-                            <h3 className="font-quiche text-[30px] leading-none mt-2">
-
-                                {metal === "diamond"
-                                    ? "2 Installments Free"
-                                    : "No Making Charges"}
-
-                            </h3>
-
-                            <p className="mt-3 text-sm leading-7 text-white/90 font-work">
+                            <p className="font-work leading-7 mt-2">
 
                                 {metal === "diamond" ? (
                                     <>
@@ -550,15 +542,24 @@ const Shreyas = () => {
                                             {formatter.format(
                                                 diamondBenefit
                                             )}
-                                        </span>
+                                        </span>{' '}
+                                        (Equivalent to 2 Installments in this example)
                                     </>
                                 ) : (
                                     <>
-                                        Save up to{" "}
+                                        No need to pay Making charges up to{' '}
                                         <span className="font-semibold">
                                             {benefitPercent()}%
                                         </span>{" "}
-                                        making charges on your jewellery purchase.
+                                        on Product (s) weighing
+                                        {" "}<span className="font-semibold">
+                                            {totalWeight.toFixed(3)}g
+                                        </span>{" "}
+                                        (Effectively you get benefit worth
+                                        {" "}<span className="font-semibold">
+                                            {benefitWeight().toFixed(3)}g
+                                        </span>{" "}
+                                        of&nbsp;{metal === "silver" ? 'Silver':'22Kt Gold'} in this example)
                                     </>
                                 )}
 
@@ -773,10 +774,10 @@ const Shreyas = () => {
 
                             </div>
 
-                            </div>
+                        </div>
 
-                            {/* Tags */}
-                            {/* <div className="mt-4 flex flex-wrap gap-3 text-sm font-work text-[#555]">
+                        {/* Tags */}
+                        {/* <div className="mt-4 flex flex-wrap gap-3 text-sm font-work text-[#555]">
 
                                 <span className="px-4 py-2 rounded-full bg-[#fdf3d7] border border-[#ecd8a8]">
                                     <b>Metal Rate*</b> : Payment Day Rate
@@ -792,53 +793,53 @@ const Shreyas = () => {
 
                             </div> */}
 
-                        </div>
+                    </div>
 
                 )}
 
-                        {/* Footer Navigation */}
-                        <div className="border-t border-[#f1e6cf] px-4 py-3 bg-[#fffaf1] flex items-center justify-between">
+                {/* Footer Navigation */}
+                <div className="border-t border-[#f1e6cf] px-4 py-3 bg-[#fffaf1] flex items-center justify-between">
 
-                            <button
-                                onClick={() =>
-                                    router.push(
-                                        `/goldenkey?navbar=${navbar}&footer=${footer}`
-                                    )
-                                }
-                                className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
-                            >
-                                ←
-                            </button>
+                    <button
+                        onClick={() =>
+                            router.push(
+                                `/goldenkey?navbar=${navbar}&footer=${footer}`
+                            )
+                        }
+                        className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
+                    >
+                        ←
+                    </button>
 
-                            <div className="text-center">
+                    <div className="text-center">
 
-                                <p className="font-work text-[11px] uppercase tracking-[3px] text-[#8c7b62]">
-                                    Sample Calculator
-                                </p>
+                        <p className="font-work text-[11px] uppercase tracking-[3px] text-[#8c7b62]">
+                            Sample Calculator
+                        </p>
 
-                                <h3 className="font-quiche text-[24px] text-[#b7892b] leading-none">
-                                    Shreyas
-                                </h3>
-
-                            </div>
-
-                            <button
-                                onClick={() =>
-                                    router.push(
-                                        `/kubera?navbar=${navbar}&footer=${footer}`
-                                    )
-                                }
-                                className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
-                            >
-                                →
-                            </button>
-
-                        </div>
+                        <h3 className="font-quiche text-[24px] text-[#b7892b] leading-none">
+                            Shreyas
+                        </h3>
 
                     </div>
 
+                    <button
+                        onClick={() =>
+                            router.push(
+                                `/kubera?navbar=${navbar}&footer=${footer}`
+                            )
+                        }
+                        className="w-10 h-10 rounded-full bg-[#b7892b] text-white flex items-center justify-center hover:scale-105 transition"
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
-            )
+    )
 
     // return (
 

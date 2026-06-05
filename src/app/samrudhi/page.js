@@ -32,7 +32,7 @@ const Samrudhi = () => {
 
   const form = useForm({
     initialValues: {
-      installmentAmt: 1000,
+      installmentAmt: 5000,
       numInstallment: 11,
       makingCharges: 20,
     },
@@ -153,7 +153,7 @@ const Samrudhi = () => {
           <div className="bg-[#fff7e8] border border-[#f1dfb2] rounded-full px-5 py-2">
 
             <p className="font-work text-[11px] uppercase tracking-[2px] text-[#8c7b62]">
-              Premium Savings
+              Benift
             </p>
 
             <h3 className="font-quiche text-[22px] text-[#0c9b4b] leading-none mt-1">
@@ -316,7 +316,7 @@ const Samrudhi = () => {
             <div className="mt-5 rounded-[22px] bg-gradient-to-r from-[#fbf4e5] to-[#fff] border border-[#f2dfb5] p-4">
 
               <p className="font-work text-[11px] uppercase tracking-[2px] text-[#8c7b62]">
-                Estimated Benefit
+                Benefit
               </p>
 
               <h3 className="font-quiche text-[30px] text-[#0c9b4b] leading-none mt-2">
@@ -387,23 +387,34 @@ const Samrudhi = () => {
             <div className="bg-gradient-to-r from-[#b7892b] to-[#8C5C34] rounded-[28px] p-5 text-white">
 
               <p className="text-[11px] uppercase tracking-[3px] font-work text-white/80">
-                Exclusive Benefit
+                Benefit
               </p>
 
-              <h3 className="font-quiche text-[30px] leading-none mt-2">
-                No Making Charges
-              </h3>
 
-              <p className="mt-3 text-sm leading-7 text-white/90 font-work">
 
-                Save up to{" "}
+              <p className="font-work leading-7 mt-2">
+                No need to pay Making charges
+                {" "}
                 <span className="font-semibold">
                   {formatter.format(
                     getDiscount()
                   )}
                 </span>{" "}
-                on jewellery making charges.
-
+                on product(s) worth
+                    {" "}
+                <span className="font-semibold">
+                     {formatter.format(
+                    getTotal()
+                  )}
+                </span>{" "}
+                (Effectively you get benefit worth
+                {" "}
+                <span className="font-semibold">
+                  {formatter.format(
+                    getDiscount()
+                  )}
+                </span>{" "}
+                in this example)
               </p>
 
             </div>

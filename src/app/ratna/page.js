@@ -313,7 +313,7 @@ const Ratna = () => {
                         <div className="mt-5 rounded-[22px] bg-gradient-to-r from-[#fbf4e5] to-[#fff] border border-[#f2dfb5] p-4">
 
                             <p className="font-work text-[11px] uppercase tracking-[2px] text-[#8c7b62]">
-                                Estimated Benefit
+                                Benefit
                             </p>
 
                             <h3 className="font-quiche text-[30px] text-[#0c9b4b] leading-none mt-2">
@@ -323,7 +323,7 @@ const Ratna = () => {
                             </h3>
 
                             <p className="mt-2 text-[12px] leading-6 text-[#666] font-work">
-                                Instant redemption savings on your jewellery purchase.
+                                Exclusive savings on your jewellery purchase plan.
                             </p>
 
                         </div>
@@ -384,25 +384,19 @@ const Ratna = () => {
                         <div className="bg-gradient-to-r from-[#b7892b] to-[#8C5C34] rounded-[28px] p-5 text-white">
 
                             <p className="text-[11px] uppercase tracking-[3px] font-work text-white/80">
-                                Exclusive Benefit
+                                Benefit
                             </p>
 
-                            <h3 className="font-quiche text-[30px] leading-none mt-2">
-                                Instant Redemption
-                            </h3>
-
-                            <p className="mt-3 text-sm leading-7 text-white/90 font-work">
-
-                                Get additional benefit worth{" "}
+                               <p className="font-work leading-7 mt-2">
+                                Effectively you get benefit worth
+                                {" "}
                                 <span className="font-semibold">
                                     {formatter.format(
                                         benefit
                                     )}
                                 </span>{" "}
-                                during redemption.
-
+                                in this example
                             </p>
-
                         </div>
 
                     </div>
