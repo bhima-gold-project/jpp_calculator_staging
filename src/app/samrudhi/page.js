@@ -204,7 +204,7 @@ const Samrudhi = () => {
                       value
                     )
                   }
-                  min={5000}
+                  min={1000}
                   max={100000}
                   step={1000}
                   styles={{
